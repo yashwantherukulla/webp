@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Camp Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .form-group label {
+            width: 150px;
+            text-align: right;
+            padding-right: 10px;
+        }
+        
+        .required:after {
+            content: " *";
+            color: red;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            height: 25px;
+            padding: 4px;
+            margin-right: 5px;
+        }
+        
+        .name-fields input {
+            width: 100px;
+            margin-right: 5px;
+        }
+        
+        .address-fields input {
+            width: 250px;
+            margin-bottom: 5px;
+        }
+        
+        .phone-fields input:first-child {
+            width: 50px;
+            margin-right: 5px;
+        }
+        
+        .phone-fields input:last-child {
+            width: 100px;
+        }
+        
+        h2 {
+            margin: 20px 0 10px 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .submit-btn {
+            background-color: #f0ad4e;
+            border: none;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 3px;
+            color: #fff;
+            font-weight: bold;
+        }
+        form {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Summer Camp Registration</h1>
+    
+    <form>
+        <h2>CHILD INFORMATION:</h2>
+        
+        <div class="form-group">
+            <label class="required">Child Name</label>
+            <div class="name-fields">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Birth Date</label>
+            <div>
+                <select required>
+                    <option value="">Please select a month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <select required>
+                    <option value="">Please select a day</option>
+                    <option>1</option><option>2</option><option>3</option><option>4</option>
+                    <option>5</option><option>6</option><option>7</option><option>8</option>
+                    <option>9</option><option>10</option><option>11</option><option>12</option>
+                    <option>13</option><option>14</option><option>15</option><option>16</option>
+                    <option>17</option><option>18</option><option>19</option><option>20</option>
+                    <option>21</option><option>22</option><option>23</option><option>24</option>
+                    <option>25</option><option>26</option><option>27</option><option>28</option>
+                    <option>29</option><option>30</option><option>31</option>
+                </select>
+                <select required>
+                    <option value="">Please select a year</option>
+                    <option>2019</option><option>2018</option><option>2017</option>
+                    <option>2016</option><option>2015</option><option>2014</option>
+                    <option>2013</option><option>2012</option><option>2011</option>
+                    <option>2010</option><option>2009</option><option>2008</option>
+                    <option>2007</option><option>2006</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Gender</label>
+            <select required>
+                <option value="">Please select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="required">Medical Conditions/Allergies</label>
+            <input type="text" placeholder="Specify if any" required>
+        </div>
+
+        <div class="form-group">
+            <label class="required">Preferred Activities</label>
+            <select required>
+                <option value="">Please select</option>
+                <option>Sports</option>
+                <option>Arts & Crafts</option>
+                <option>Music</option>
+                <option>Science Experiments</option>
+                <option>Outdoor Adventures</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Grade</label>
+            <input type="text" placeholder="e.g. 4" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Name of School</label>
+            <input type="text" required>
+        </div>
+        
+        <h2>PARENT/GUARDIAN INFORMATION:</h2>
+        
+        <div class="form-group">
+            <label class="required">Parent/Guardian Name</label>
+            <div class="name-fields">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Relationship to Child</label>
+            <input type="text" placeholder="e.g. Mother, Father" required>
+        </div>
+
+        <div class="form-group">
+            <label class="required">Address</label>
+            <div class="address-fields">
+                <input type="text" placeholder="Street Address" required><br>
+                <input type="text" placeholder="Street Address Line 2"><br>
+                <input type="text" placeholder="City" style="width: 120px;">
+                <input type="text" placeholder="State / Province" style="width: 120px;"><br>
+                <input type="text" placeholder="Postal / Zip Code" style="width: 120px;">
+                <select style="width: 120px;">
+                    <option value="">Country</option>
+                    <option>India</option><option>Australia</option><option>USA</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Phone Number</label>
+            <div class="phone-fields">
+                <input type="text" placeholder="Area Code" required>
+                <input type="text" placeholder="Phone Number" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">E-mail</label>
+            <input type="email" placeholder="ex: myname@example.com" required style="width: 250px;">
+        </div>
+
+        <div class="form-group">
+            <label>Special Instructions/Notes</label>
+            <textarea placeholder="Provide any special instructions or notes here" style="width: 250px; height: 60px;"></textarea>
+        </div>
+
+        <h2>EMERGENCY CONTACT DETAILS:</h2>
+        
+        <div class="form-group">
+            <label class="required">Emergency Contact Name</label>
+            <div class="name-fields">
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Last Name" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Relationship</label>
+            <input type="text" placeholder="e.g. Uncle, Aunt" required>
+        </div>
+        
+        <div class="form-group">
+            <label class="required">Contact Number</label>
+            <div class="phone-fields">
+                <input type="text" placeholder="Area Code" required>
+                <input type="text" placeholder="Phone Number" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Alternate Contact</label>
+            <div class="name-fields">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Alternate Contact Number</label>
+            <div class="phone-fields">
+                <input type="text" placeholder="Area Code">
+                <input type="text" placeholder="Phone Number">
+            </div>
+        </div>
+        
+        <h2>MEDICAL INFORMATION:</h2>
+        
+        <div class="form-group">
+            <label>Physician Name</label>
+            <div class="name-fields">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Phone Number</label>
+            <div class="phone-fields">
+                <input type="text" placeholder="Area Code">
+                <input type="text" placeholder="Phone Number">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Medical Report</label>
+            <input type="file">
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button type="submit" class="submit-btn">Submit Form</button>
+        </div>
+
+        <p id="confirmation-message" style="display: none; color: green; text-align: center; margin-top: 20px;">
+            Your form has been successfully submitted!
+        </p>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('confirmation-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
