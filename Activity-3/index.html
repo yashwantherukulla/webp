@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Journal Subscription</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h2>Journal Subscription</h2>
+<form action="" method="post">
+    <label for="start-date">Starting Date:</label>
+    <input type="date" id="start-date" name="start-date" required>
+    <br>
+    <label for="subscription-duration">Subscription Duration (min: 1 year | max: 5 years):</label>
+    <input type="range" id="subscription-duration" name="subscription-duration" min="1" max="5" value="1">
+    <br>
+    <label>Occupation:</label>
+    <input type="radio" id="student" name="occupation" value="student">
+    <label for="student">Student</label>
+    <input type="radio" id="professional" name="occupation" value="professional">
+    <label for="professional">Professional</label>
+    <br>
+    <label>Journal Titles:</label>
+    <br>
+    <input type="checkbox" id="journal1" name="journal" value="journal1">
+    <label for="journal1">Journal Title 1</label>
+    <br>
+    <input type="checkbox" id="journal2" name="journal" value="journal2">
+    <label for="journal2">Journal Title 2</label>
+    <br>
+    <input type="checkbox" id="journal3" name="journal" value="journal3">
+    <label for="journal3">Journal Title 3</label>
+    <br>
+    <input type="checkbox" id="journal4" name="journal" value="journal4">
+    <label for="journal4">Journal Title 4</label>
+    <br>
+    <input type="checkbox" id="journal5" name="journal" value="journal5">
+    <label for="journal5">Journal Title 5</label>
+    <br>
+    <label for="subscription-count">Number of Subscriptions (10 to 200):</label>
+    <input type="number" id="subscription-count" name="subscription-count" min="10" max="200" required>
+    <br>
+    <input type="submit" value="Subscribe">
+</form>
+</body>
+</html>
