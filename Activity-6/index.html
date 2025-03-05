@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Eligibility Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Eligibility Checker</h1>
+        <form id="loanForm">
+            <div class="form-group">
+                <label for="annualIncome">Annual Income (Rs):</label>
+                <input type="number" id="annualIncome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="creditScore">Credit Score:</label>
+                <input type="number" id="creditScore" min="300" max="900" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" min="1" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interestRate">Interest Rate (%):</label>
+                <input type="number" id="interestRate" step="0.01" min="1" max="20" value="10" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loanTenure">Loan Tenure (years):</label>
+                <input type="number" id="loanTenure" min="1" max="30" value="5" required>
+            </div>
+
+            <button type="submit">Check Eligibility</button>
+        </form>
+
+        <div id="result" class="result-hidden">
+            <h2>Eligibility Result</h2>
+            <div id="eligibilityResult"></div>
+            <div id="loanDetails"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
