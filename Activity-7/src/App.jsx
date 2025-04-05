@@ -13,9 +13,9 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/admission-form" element={<AdmissionForm />} />
-            <Route path="/admission-status" element={<AdmissionStatus />} />
+            <Route path="/webp/Activity-7" element={<Home />} />
+            <Route path="/webp/Activity-7/admission-form" element={<AdmissionForm />} />
+            <Route path="/webp/Activity-7/admission-status" element={<AdmissionStatus />} />
           </Routes>
         </main>
         <Footer />

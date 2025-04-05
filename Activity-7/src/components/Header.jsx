@@ -8,13 +8,13 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/webp/Activity-7">Home</Link>
           </li>
           <li>
-            <Link to="/admission-form">Admission Form</Link>
+            <Link to="/webp/Activity-7/admission-form">Admission Form</Link>
           </li>
           <li>
-            <Link to="/admission-status">Check Status</Link>
+            <Link to="/webp/Activity-7/admission-status">Check Status</Link>
           </li>
         </ul>
       </nav>
