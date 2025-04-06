@@ -79,7 +79,7 @@ function AdmissionForm() {
       localStorage.setItem("applications", JSON.stringify(applications));
 
       // Navigate to confirmation page
-      navigate("/webp/Activity-7/admission-status", {
+      navigate("/admission-status", {
         state: { formData: submittedData, isSubmission: true },
       });
     }

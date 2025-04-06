@@ -29,7 +29,7 @@ function Home() {
         </p>
 
         <div className="cta-button">
-          <Link to="/webp/Activity-7/admission-form">Apply Now</Link>
+          <Link to="/admission-form">Apply Now</Link>
         </div>
       </div>
     </div>

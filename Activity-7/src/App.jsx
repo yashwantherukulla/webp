@@ -7,15 +7,16 @@ import AdmissionStatus from "./pages/AdmissionStatus";
 import "./App.css";
 
 function App() {
+  const basePath = "/webp/Activity-7";
   return (
-    <Router>
+    <Router basename={basePath}>
       <div className="app-container">
         <Header />
         <main className="main-content">
           <Routes>
-            <Route path="/webp/Activity-7" element={<Home />} />
-            <Route path="/webp/Activity-7/admission-form" element={<AdmissionForm />} />
-            <Route path="/webp/Activity-7/admission-status" element={<AdmissionStatus />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/admission-form" element={<AdmissionForm />} />
+            <Route path="/admission-status" element={<AdmissionStatus />} />
           </Routes>
         </main>
         <Footer />
