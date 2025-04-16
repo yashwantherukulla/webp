@@ -26,8 +26,12 @@ function AdmissionForm() {
     const newErrors = {};
 
     // Validate name
+    const nameRegex = /^[a-zA-Z]+$/;
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
+      isValid = false;
+    } else if (!nameRegex.test(formData.name)) {
+      newErrors.name = "Name must contain alphabets only";
       isValid = false;
     }
 

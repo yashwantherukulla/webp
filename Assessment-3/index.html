@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Tournament Registration</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+      .radio-group {
+        display: flex;
+        gap: 10px;
+      }
+      .tooltip {
+        position: absolute;
+        background: black;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        display: none;
+        z-index: 100;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #confirmation {
+        display: none;
+        background-color: #dff0d8;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        color: #3c763d;
+      }
+      #eliteTraining {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Sports Tournament Registration</h2>
+      <form id="registrationForm" onsubmit="return validateForm(event)">
+        <div>
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" />
+          <div id="fullNameError" class="error"></div>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+          <div id="emailError" class="error"></div>
+        </div>
+
+        <div>
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter 10 digit number" />
+          <div id="mobileError" class="error"></div>
+        </div>
+
+        <div>
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" />
+          <div id="dobError" class="error"></div>
+        </div>
+
+        <div>
+          <label for="gender">Gender</label>
+          <div class="radio-group">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              style="width: auto"
+            />
+            <label for="male" style="display: inline">Male</label>
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              style="width: auto"
+            />
+            <label for="female" style="display: inline">Female</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="sport">Sport</label>
+          <select id="sport" onchange="updateTrainingSlots()">
+            <option value="">Select Sport</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Badminton">Badminton</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="trainingSlot">Training Slot</label>
+          <select id="trainingSlot">
+            <option value="">Select Slot</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="skillLevel">Skill Level</label>
+          <select id="skillLevel" onchange="checkAdvanced()">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+
+        <div id="eliteTraining">
+          <label>Elite Training Options:</label>
+          <div>
+            <input type="checkbox" id="personalCoach" style="width: auto" />
+            <label for="personalCoach" style="display: inline"
+              >Personal Coach</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="nutritionPlan" style="width: auto" />
+            <label for="nutritionPlan" style="display: inline"
+              >Nutrition Plan</label
+            >
+          </div>
+        </div>
+
+        <div>
+          <label
+            for="comments"
+            onmouseover="showTooltip(event)"
+            onmouseout="hideTooltip()"
+            >Comments (Min 20 words)</label
+          >
+          <textarea
+            id="comments"
+            rows="4"
+            placeholder="Tell us more about your sports experience"
+          ></textarea>
+          <div id="commentsError" class="error"></div>
+        </div>
+
+        <button type="submit">Register</button>
+        <div id="confirmation">
+          Registration Successful! Thank you for registering.
+        </div>
+      </form>
+    </div>
+
+    <div id="tooltip" class="tooltip">
+      Please describe your sports experience in at least 20 words
+    </div>
+
+    <script>
+      function validateForm(event) {
+        event.preventDefault();
+        let isValid = true;
+
+        let fullName = document.getElementById("fullName").value;
+        if (!/^[a-zA-Z\s]+$/.test(fullName)) {
+          document.getElementById("fullNameError").innerText =
+            "Only alphabets allowed";
+          isValid = false;
+        } else document.getElementById("fullNameError").innerText = "";
+
+        let email = document.getElementById("email").value;
+        if (!/\S+@\S+\.\S+/.test(email)) {
+          document.getElementById("emailError").innerText =
+            "Invalid email format";
+          isValid = false;
+        } else document.getElementById("emailError").innerText = "";
+
+        let mobile = document.getElementById("mobile").value;
+        if (!/^\d{10}$/.test(mobile)) {
+          document.getElementById("mobileError").innerText =
+            "Must be 10 digits";
+          isValid = false;
+        } else document.getElementById("mobileError").innerText = "";
+
+        let dob = new Date(document.getElementById("dob").value);
+        let age = new Date().getFullYear() - dob.getFullYear();
+        if (age < 12) {
+          document.getElementById("dobError").innerText =
+            "Must be at least 12 years old";
+          isValid = false;
+        } else document.getElementById("dobError").innerText = "";
+
+        let comments = document.getElementById("comments").value;
+        if (comments.split(" ").length < 20) {
+          document.getElementById("commentsError").innerText =
+            "Must be at least 20 words";
+          isValid = false;
+        } else document.getElementById("commentsError").innerText = "";
+
+        if (isValid)
+          document.getElementById("confirmation").style.display = "block";
+        return false;
+      }
+
+      function updateTrainingSlots() {
+        let sport = document.getElementById("sport").value;
+        let slots = {
+          Football: ["Morning", "Evening"],
+          Basketball: ["Afternoon", "Evening"],
+          Tennis: ["Morning", "Night"],
+          Badminton: ["Evening", "Night"],
+        };
+        let trainingSlot = document.getElementById("trainingSlot");
+        trainingSlot.innerHTML = slots[sport]
+          ? slots[sport].map((s) => `<option>${s}</option>`).join("")
+          : '<option value="">Select Slot</option>';
+      }
+
+      function showTooltip(event) {
+        let tooltip = document.getElementById("tooltip");
+        tooltip.style.left = event.pageX + "px";
+        tooltip.style.top = event.pageY - 30 + "px";
+        tooltip.style.display = "block";
+      }
+
+      function hideTooltip() {
+        document.getElementById("tooltip").style.display = "none";
+      }
+
+      function checkAdvanced() {
+        document.getElementById("eliteTraining").style.display =
+          document.getElementById("skillLevel").value === "Advanced"
+            ? "block"
+            : "none";
+      }
+    </script>
+  </body>
+</html>

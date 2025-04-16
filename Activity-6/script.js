@@ -1,4 +1,4 @@
-document.getElementById('loanForm').addEventListener('submit', function(e) {
+document.getElementById('loanForm').addEventListener('submit', (e) => {
     e.preventDefault();
     
     const annualIncome = parseFloat(document.getElementById('annualIncome').value);
